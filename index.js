@@ -102,7 +102,9 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(){
+  function USApop( array){
+    let newArray = [];
+
     
   }
     
@@ -152,13 +154,16 @@ function greeting(firstName, lastName){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker (length, width, height){
+function CuboidMaker (width,length,height){
+  this.length = length;
+  this.width = width;
+  this.height = height;
+  
 
-    this.length = length;
-    this.width =   width;
-    this.height = height;
 }
 
+let instance = new CuboidMaker(10,5, 25);
+console.log(instance);
   
 
 
@@ -179,7 +184,7 @@ CuboidMaker.prototype.volume= function(){
   2 * (length * width + length * height + width * height)  */
 
 CuboidMaker.prototype.surfaceArea = function(){
-  return `2 * (this.length * this.width + this.length * this.height + this.width * this.height)`;
+  return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
 }
 
 
@@ -188,12 +193,12 @@ CuboidMaker.prototype.surfaceArea = function(){
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-  //  const cuboid = new CuboidMaker {
-  //    length: 4;
-  //    width: 5,
-  //    height: 5;
-  //  };
-
+  //  const cuboid = new CuboidMaker ( 
+  //    length = 4,
+  //    width= 5,
+  //    height = 5
+   
+  //  });
 
 
 
@@ -205,11 +210,19 @@ CuboidMaker.prototype.surfaceArea = function(){
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
-class CuboidMakerTwo extends CuboidMaker{
-  constructor (length, width, height){
-    super (length, width, height);
-  }
 
+class CuboidMakerTwo  {
+  constructor (length, width, height){
+    this.length = length;
+    this.width = width; 
+    this.height = height;
+  }
+volume (){
+  return this.length * this.width * this.height;
+}
+surfaceArea (){
+  return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
+}
 }
 
 
