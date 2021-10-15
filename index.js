@@ -2,7 +2,7 @@
 /* 🚀🚀🚀🤓 Task 1: 🤓🚀🚀🚀 
 Study the code below and explain in your own words why nested function can access the variable internal. */
 
-const { isTSEnumMember } = require("@babel/types");
+const { isTSEnumMember, tsMethodSignature } = require("@babel/types");
 
 const external = "I'm outside the function";
 
@@ -153,24 +153,23 @@ function greeting(firstName, lastName){
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-  // console.log(consume(2, 2, add)); // 4
-  // console.log(consume(10, 16, multiply)); // 160
-  // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  console.log(consume(2, 2, add)); // 4
+  console.log(consume(10, 16, multiply)); // 160
+  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 // 🐴🐴🐴 Topic 3: Prototypes 🐴🐴🐴 //
 //🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker (width,length,height){
+function CuboidMaker(length, width, height){
   this.length = length;
   this.width = width;
   this.height = height;
-  
 }
 
-let instance = new CuboidMaker(10,5, 25);
-console.log(instance);
+// let instance = new CuboidMaker(10,5, 25);
+// console.log(instance);
   
 
 
@@ -200,42 +199,37 @@ CuboidMaker.prototype.surfaceArea = function(){
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-  //  const cuboid = new CuboidMaker ( 
-  //    length = 4,
-  //    width= 5,
-  //    height = 5
-   
-  //  });
+  const cuboid = new CuboidMaker(4,5,5)
 
 
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume());  100
-// console.log(cuboid.surfaceArea()); 130
+console.log(cuboid.volume());  100
+console.log(cuboid.surfaceArea()); 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 
 class CuboidMakerTwo  {
-  constructor (length, width, height){
-    this.length = length;
-    this.width = width; 
-    this.height = height;
+  constructor (object){
+    this.length = object.length;
+    this.width = object.width; 
+    this.height = object.height;
   }
-volume (){
-  return this.length * this.width * this.height;
-}
-surfaceArea (){
-  return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
-}
+  volume (){
+    return this.length * this.width * this.height;
+  }
+  surfaceArea (){
+    return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
+  }
 }
 
-
+let cuboidTwo = new CuboidMakerTwo(4,5,5);
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
