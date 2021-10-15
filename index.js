@@ -30,7 +30,12 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation() {
+function summation(number) {
+  let sum = 0;
+  for( let i = 1; i <= number; i++){
+    sum = sum + i;
+  }
+  return sum;
 }
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -159,7 +164,6 @@ function CuboidMaker (width,length,height){
   this.width = width;
   this.height = height;
   
-
 }
 
 let instance = new CuboidMaker(10,5, 25);
