@@ -108,8 +108,11 @@ const zooAnimals = [
   */
 
   function USApop( array){
-    let newArray = [];
+    let sum = array.reduce(function(accumulator, item){
+      return accumulator + item.population;
+    }, 0);
 
+    return sum;
     
   }
     
